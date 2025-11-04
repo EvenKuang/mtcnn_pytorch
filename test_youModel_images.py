@@ -32,11 +32,20 @@ def draw_images(img, bboxs, landmarks):  # 在图片上绘制人脸框及特征�
 
 
 if __name__ == '__main__':
+    # 总结果，三层级联
+    # mtcnn_detector = MtcnnDetector(p_model_path="./results/pnet/log_bs512_lr0.010_072402/check_point/model_050.pth",
+    #                                r_model_path="./results/rnet/log_bs512_lr0.001_072502/check_point/model_050.pth",
+    #                                o_model_path="./results/onet/log_bs512_lr0.001_072602/check_point/model_050.pth",
+    #                                min_face_size=24,
+    #                                use_cuda=False)   # 加载模型参数，构造检测器
+
+    # 如果你需要验证/查看部分网络结果，比如指查看pnet的，结果会放在you_result中，会覆盖原先结果，把outputpath修改一下或者原来的结果文件夹名字修改一下
     mtcnn_detector = MtcnnDetector(p_model_path="./results/pnet/log_bs512_lr0.010_072402/check_point/model_050.pth",
-                                   r_model_path="./results/rnet/log_bs512_lr0.001_072502/check_point/model_050.pth",
-                                   o_model_path="./results/onet/log_bs512_lr0.001_072602/check_point/model_050.pth",
+                                   r_model_path=None,
+                                   o_model_path=None,
                                    min_face_size=24,
                                    use_cuda=False)   # 加载模型参数，构造检测器
+
     logger.info("Init the MtcnnDetector.")
     project_root = pathlib.Path()
     inputPath = project_root / "data" / "test_images"
