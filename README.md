@@ -48,10 +48,16 @@ python test_image.py
 ```
 
 **四、实验补充**
+
 新建dataset文件夹
 将WIDER FACE数据集的train部分放入其中
 将FACEPOINT的train部分放入其中（下载之后的文件名为train）
 
+如果运行assemble报错config找不到，试一试开头添加：
+```bash
+import sys
+sys.path.append('./')
+```
 
 
 -----
